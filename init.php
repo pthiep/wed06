@@ -10,10 +10,16 @@ session_start();
 $page = basename($_SERVER['SCRIPT_NAME'], '.php');
 
 // Kết nối CSDL
-$db = new PDO('mysql:host=localhost;dbname=mysql;charset=utf8', 'root', '');
+$db = new PDO('mysql:host=localhost;dbname=btcn08;charset=utf8', 'root', '');
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // Kiểm tra thông tin người dùng
 $currentUser = null;
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php';
 
 require_once 'functions.php';
 

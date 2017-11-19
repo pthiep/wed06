@@ -7,7 +7,6 @@
     $email = strtolower($_POST['email']);
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $fullname = $_POST['fullname'];
-	$sdt = $_POST['sdt'];
 
     // Kiểm tra xem email có trùng không
     $user = findUserByEmail($email);
@@ -15,7 +14,7 @@
     if ($user) {
       $success = false;
     } else {
-      $insertId = createUser($fullname, $email, $password, $sdt);
+      $insertId = createUser($fullname, $email, $password);
       $_SESSION['userId'] = $insertId;
       // Redirect to home page
       header('Location: index.php');
@@ -42,10 +41,6 @@
   <div class="form-group">
     <label for="password">Mật khẩu</label>
     <input type="password" class="form-control" id="password" name="password" placeholder="Điền mật khẩu vào đây">
-  </div>
-  <div class="form-group">
-    <label for="sdt">Số điện thoại</label>
-    <input type="text" class="form-control" id="sdt" name="sdt" placeholder="Điền số điện thoại vào đây">
   </div>
   <div class="form-check">
     <label class="form-check-label">

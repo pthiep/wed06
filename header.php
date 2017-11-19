@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>BTCN06</title>
+    <title>BTCN08</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">BTCN06</a>
+        <a class="navbar-brand" href="#">BTCN07</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -28,31 +29,40 @@
             </li>
             <?php endif; ?>
             <?php if (!$currentUser) : ?>
-            <li class="nav-item  <?php echo ($page == 'login') ? 'active' : '' ?>">
+            <li class="nav-item <?php echo ($page == 'login') ? 'active' : '' ?>">
               <a class="nav-link" href="login.php">Đăng nhập</a>
             </li>
             <?php endif; ?>
             <?php if ($currentUser) : ?>
-			<li class="nav-item <?php echo ($page == 'post') ? 'active' : '' ?>">
-				<a class="nav-link" href="post.php">
-					<?php echo "Đăng trạng thái"?>
-				</a>
-            </li>
-            <li class="nav-item <?php echo ($page == 'profile') ? 'active' : '' ?>">
-              <a class="nav-link" href="profile.php">
-                <?php echo $currentUser['fullname']?>
+            <li class="nav-item">
+              <a class="nav-link <?php echo ($page == 'post') ? 'active' : '' ?>" href="post.php">
+                Đăng trạng thái
               </a>
             </li>
-			<li class="nav-item <?php echo ($page == 'change-password') ? 'active' : '' ?>">
-				<a class="nav-link" href="change-password.php">
-					<?php echo "Đổi mật khẩu"?>
-				</a>
+            <li class="nav-item">
+              <a class="nav-link <?php echo ($page == 'friend') ? 'active' : '' ?>" href="friend.php">
+                Bạn bè
+              </a>
             </li>
-			<li class="nav-item">
+            <li class="nav-item">
+              <a class="nav-link <?php echo ($page == 'message') ? 'active' : '' ?>" href="message.php">
+                Tin nhắn
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link <?php echo ($page == 'profile') ? 'active' : '' ?>" href="profile.php">
+                <?php echo $currentUser['fullname'] ?>
+              </a>
+            </li>
+            <li class="nav-item <?php echo ($page == 'change-password') ? 'active' : '' ?>">
+              <a class="nav-link" href="change-password.php">
+                Đổi mật khẩu
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="logout.php">Đăng xuất</a>
             </li>
-            <?php endif; ?>
-            <?php if (!$currentUser) : ?>
+            <?php else : ?>
             <li class="nav-item">
               <a class="nav-link disabled" href="#">
                 Khách

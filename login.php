@@ -36,5 +36,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     <input type="password" class="form-control" id="password" name="password" placeholder="Điền mật khẩu vào đây">
   </div>
   <button type="submit" class="btn btn-primary">Đăng nhập</button>
+  <br>
+  <a href="forgot-password.php">Bạn đã quên mật khẩu?</a>
 </form>
 <?php include 'footer.php' ?>
